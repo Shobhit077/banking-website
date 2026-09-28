@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexBank | Modern Online Banking</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar" id="sidebar">
+            <div class="brand">
+                <i class="fas fa-university text-primary"></i>
+                <h2>NexBank</h2>
+            </div>
+            
+            <ul class="nav-links">
+                <li class="nav-item active" data-target="dashboard">
+                    <i class="fas fa-th-large"></i> <span>Dashboard</span>
+                </li>
+                <li class="nav-item" data-target="transfer">
+                    <i class="fas fa-exchange-alt"></i> <span>Fund Transfer</span>
+                </li>
+                <li class="nav-item" data-target="transactions">
+                    <i class="fas fa-history"></i> <span>Transactions</span>
+                </li>
+                <li class="nav-item" data-target="profile">
+                    <i class="fas fa-user-circle"></i> <span>Profile</span>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <li class="nav-item logout">
+                    <i class="fas fa-sign-out-alt"></i> <span>Logout</span>
+                </li>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="greeting">
+                    <h2 id="greetingText">Good Morning, Shobhit</h2>
+                    <p class="text-muted">Welcome back to your secure dashboard.</p>
+                </div>
+                <div class="topbar-actions">
+                    <button class="icon-btn"><i class="fas fa-bell"></i><span class="badge">3</span></button>
+                    <div class="user-profile">
+                        <img src="https://ui-avatars.com/api/?name=Shobhit+Shukla&background=2563eb&color=fff" alt="User" class="avatar">
+                    </div>
+                </div>
+            </header>
+
+            <!-- 1. DASHBOARD SECTION -->
+            <section id="dashboard" class="page-section active">
+                <!-- Balance Cards -->
+                <div class="grid-3 mb-2">
+                    <div class="balance-card primary-card">
+                        <div class="card-head">
+                            <p>Total Balance</p>
+                            <i class="fas fa-wallet opacity-50"></i>
+                        </div>
+                        <h2>$24,562.00</h2>
+                        <div class="card-foot">
+                            <span>**** **** **** 4281</span>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="MC" width="40">
+                        </div>
+                    </div>
+                    
+                    <div class="balance-card savings-card">
+                        <div class="card-head">
+                            <p>Savings Account</p>
+                            <i class="fas fa-piggy-bank opacity-50"></i>
+                        </div>
+                        <h2>$12,450.50</h2>
+                        <div class="card-foot">
+                            <span class="text-success"><i class="fas fa-arrow-up"></i> +2.4% this month</span>
+                        </div>
+                    </div>
+
+                    <div class="quick-actions-card card">
+                        <h3>Quick Actions</h3>
+                        <div class="action-grid mt-1">
+                            <button class="action-btn" onclick="switchTab('transfer')"><i class="fas fa-paper-plane text-primary"></i><span>Send</span></button>
+                            <button class="action-btn"><i class="fas fa-hand-holding-usd text-success"></i><span>Receive</span></button>
+                            <button class="action-btn"><i class="fas fa-file-invoice text-warning"></i><span>Bills</span></button>
+                            <button class="action-btn"><i class="fas fa-ellipsis-h text-muted"></i><span>More</span></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-2 gap-2">
+                    <!-- Recent Transactions -->
+                    <div class="card">
+                        <div class="flex-between mb-1">
+                            <h3>Recent Transactions</h3>
+                            <a href="#" class="text-primary text-sm font-medium" onclick="switchTab('transactions')">View All</a>
+                        </div>
+                        <ul class="transaction-list">
+                            <li class="tx-item">
+                                <div class="tx-left">
+                                    <div class="tx-icon bg-red"><i class="fas fa-shopping-cart"></i></div>
+                                    <div><h4>Amazon Purchases</h4><p class="text-muted text-sm">Today, 10:24 AM</p></div>
+                                </div>
+                                <h4 class="text-danger">-$142.00</h4>
+                            </li>
+                            <li class="tx-item">
+                                <div class="tx-left">
+                                    <div class="tx-icon bg-green"><i class="fas fa-briefcase"></i></div>
+                                    <div><h4>TechCorp Salary</h4><p class="text-muted text-sm">Yesterday, 09:00 AM</p></div>
+                                </div>
+                                <h4 class="text-success">+$4,250.00</h4>
+                            </li>
+                            <li class="tx-item">
+                                <div class="tx-left">
+                                    <div class="tx-icon bg-blue"><i class="fas fa-coffee"></i></div>
+                                    <div><h4>Starbucks</h4><p class="text-muted text-sm">Oct 12, 08:15 AM</p></div>
+                                </div>
+                                <h4 class="text-danger">-$5.40</h4>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Monthly Spending (UI Placeholder) -->
+                    <div class="card">
+                        <h3>Monthly Spending</h3>
+                        <div class="spending-bars mt-2">
+                            <div class="bar-group"><div class="bar" style="height: 40%;"></div><span>Mon</span></div>
+                            <div class="bar-group"><div class="bar" style="height: 70%;"></div><span>Tue</span></div>
+                            <div class="bar-group"><div class="bar" style="height: 30%;"></div><span>Wed</span></div>
+                            <div class="bar-group"><div class="bar primary" style="height: 90%;"></div><span>Thu</span></div>
+                            <div class="bar-group"><div class="bar" style="height: 50%;"></div><span>Fri</span></div>
+                            <div class="bar-group"><div class="bar" style="height: 20%;"></div><span>Sat</span></div>
+                            <div class="bar-group"><div class="bar" style="height: 45%;"></div><span>Sun</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. FUND TRANSFER SECTION -->
+            <section id="transfer" class="page-section">
+                <div class="card mx-auto max-w-lg">
+                    <h2 class="mb-2">Transfer Funds</h2>
+                    <form id="transferForm">
+                        <div class="form-group">
+                            <label>From Account</label>
+                            <select class="form-control">
+                                <option>Checking (...4281) - $24,562.00</option>
+                                <option>Savings (...9920) - $12,450.50</option>
+                            </select>
+                        </div>
+                        <div class="form-group mt-1">
+                            <label>Recipient Name</label>
+                            <input type="text" class="form-control" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group mt-1">
+                            <label>Recipient Account Number</label>
+                            <input type="text" class="form-control" placeholder="Enter 10 digit account number" pattern="[0-9]{10}" required>
+                        </div>
+                        <div class="form-group mt-1">
+                            <label>Amount ($)</label>
+                            <div class="amount-input-wrapper">
+                                <span class="currency-symbol">$</span>
+                                <input type="number" class="form-control amount-input" placeholder="0.00" min="1" required>
+                            </div>
+                        </div>
+                        <div class="form-group mt-1 mb-2">
+                            <label>Note (Optional)</label>
+                            <input type="text" class="form-control" placeholder="e.g., Rent Payment">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 btn-lg">Complete Transfer</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- 3. TRANSACTIONS SECTION -->
+            <section id="transactions" class="page-section">
+                <div class="card">
+                    <div class="flex-between mb-2">
+                        <h2>Transaction History</h2>
+                        <div class="filters">
+                            <select class="form-control"><option>All Time</option><option>This Month</option></select>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Category</th>
+                                    <th>Status</th>
+                                    <th class="text-right">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Oct 14, 2026</td>
+                                    <td><strong>Amazon Purchases</strong><br><small class="text-muted">Online Shopping</small></td>
+                                    <td>Shopping</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                    <td class="text-right text-danger font-medium">-$142.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Oct 13, 2026</td>
+                                    <td><strong>TechCorp Salary</strong><br><small class="text-muted">Direct Deposit</small></td>
+                                    <td>Income</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                    <td class="text-right text-success font-medium">+$4,250.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Oct 12, 2026</td>
+                                    <td><strong>Starbucks</strong><br><small class="text-muted">Point of Sale</small></td>
+                                    <td>Food & Dining</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                    <td class="text-right text-danger font-medium">-$5.40</td>
+                                </tr>
+                                <tr>
+                                    <td>Oct 10, 2026</td>
+                                    <td><strong>Netflix Subscription</strong><br><small class="text-muted">Recurring</small></td>
+                                    <td>Entertainment</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                    <td class="text-right text-danger font-medium">-$15.99</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. PROFILE SECTION -->
+            <section id="profile" class="page-section">
+                <div class="grid-2 gap-2">
+                    <div class="card text-center">
+                        <img src="https://ui-avatars.com/api/?name=Shobhit+Shukla&background=2563eb&color=fff&size=128" alt="Profile" class="profile-avatar mb-1">
+                        <h2>Shobhit Shukla</h2>
+                        <p class="text-muted mb-2">Premium Account Member</p>
+                        <div class="profile-details text-left">
+                            <div class="detail-row"><span>Account Status:</span><span class="badge badge-success">Active</span></div>
+                            <div class="detail-row"><span>Member Since:</span><span>Jan 2024</span></div>
+                            <div class="detail-row"><span>Branch:</span><span>New York Central</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 class="mb-2">Personal Information</h3>
+                        <form id="profileForm">
+                            <div class="grid-2 gap-1 mb-1">
+                                <div class="form-group"><label>First Name</label><input type="text" class="form-control" value="Shobhit"></div>
+                                <div class="form-group"><label>Last Name</label><input type="text" class="form-control" value="Shukla"></div>
+                            </div>
+                            <div class="form-group mb-1">
+                                <label>Email Address</label>
+                                <input type="email" class="form-control" value="shobhit@example.com">
+                            </div>
+                            <div class="form-group mb-1">
+                                <label>Phone Number</label>
+                                <input type="tel" class="form-control" value="+1 (555) 123-4567">
+                            </div>
+                            <div class="form-group mb-2">
+                                <label>Mailing Address</label>
+                                <textarea class="form-control" rows="2">123 Tech Avenue, NY 10001</textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update Profile</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Success Modal Overlay -->
+    <div class="modal" id="successModal">
+        <div class="modal-content text-center">
+            <div class="modal-icon text-success mb-1"><i class="fas fa-check-circle fa-4x"></i></div>
+            <h2 class="mb-1">Transfer Successful!</h2>
+            <p class="text-muted mb-2">Your funds have been securely transferred to the recipient.</p>
+            <button class="btn btn-primary w-100" onclick="closeModal()">Back to Dashboard</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
